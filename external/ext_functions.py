@@ -1,5 +1,4 @@
 import csv
-from tabnanny import check
 import pandas as pd
 import os
 import numpy as np
@@ -10,7 +9,7 @@ def check_test_data(id, test_ratio=0.20):
     # starting value for checksum is the instance provided, as a 64 bit np integer object
     return crc32(np.int64(id)) & 0xfffffff < test_ratio * (2**32) 
 
-def split_data(data, test_ratio=0.20, id_col):
+def split_data(data, id_col, test_ratio=0.20):
     """
     Split a dataset into a training and test set, where test_ratio refers to the % size of the test set(test_ratio * dataset_size).
 
